@@ -1,0 +1,17 @@
+services:
+  db:
+    image: postgres:16
+    container_name: metering-db
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres   # local sandbox only, never use this for real data
+      POSTGRES_DB: metering
+    ports:
+      - "5432:5432"
+    volumes:
+      # Scripts in this folder run once, when the database is first created
+      - ./sql/init:/docker-entrypoint-initdb.d:ro
+      - pgdata:/var/lib/postgresql/data
+
+volumes:
+  pgdata:

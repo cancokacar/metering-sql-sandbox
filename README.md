@@ -4,6 +4,22 @@ A small PostgreSQL project built around **energy metering data**: customers, mar
 
 I built it to get hands-on with relational databases in a realistic energy-industry context: schema design, joins, aggregations, diagnosing data quality problems, and index tuning.
 
+## Project structure
+
+```
+metering-sql-sandbox/
+├── README.md                      ← the most important file
+├── docker-compose.yml             ← one command starts Postgres
+├── sql/
+│   ├── init/
+│   │   ├── 01_schema.sql          ← CREATE TABLE statements
+│   │   └── 02_seed.sql            ← sample data + the simulated gap
+│   ├── 03_queries.sql             ← the 9 practice queries, commented
+│   └── 04_indexes.sql             ← index + EXPLAIN ANALYZE
+└── notes/
+    └── explain-before-after.md    ← pasted query plans + timings
+```
+
 ## What's inside
 
 | Path | Contents |
